@@ -1,0 +1,53 @@
+managed implementation in class ZBP_R_MPD_EMPLOYEE unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_MPD_EMPLOYEE alias Empleado
+persistent table ZMPD_EMPLOYEE
+extensible
+draft table ZMPD_EMPLOYEE_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   EmployeeID;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   EmployeeID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZMPD_EMPLOYEE corresponding extensible
+  {
+    EmployeeID = EMPLOYEE_ID;
+    FirstName = FIRST_NAME;
+    LastName = LAST_NAME;
+    BirthDate = BIRTH_DATE;
+    EntryDate = ENTRY_DATE;
+    AnnualSalary = ANNUAL_SALARY;
+    CurrencyCode = CURRENCY_CODE;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

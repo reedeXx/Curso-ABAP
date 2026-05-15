@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_MPD_EMPLOYEE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_MPD_EMPLOYEE'
+  }
+}
+define service ZUI_MPD_EMPLOYEE_O4 provider contracts odata_v4_ui {
+  expose ZC_MPD_EMPLOYEE as Empleado;
+}

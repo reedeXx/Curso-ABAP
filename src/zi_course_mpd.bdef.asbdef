@@ -1,0 +1,25 @@
+managed implementation in class zbp_i_course_mpd unique;
+strict ( 2 );
+
+define behavior for ZI_COURSE_MPD alias Course
+persistent table zcourse_mpd
+lock master
+authorization master ( global )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+ mapping for zcourse_mpd
+  {
+    CourseId    = course_id;
+    CourseName  = course_name;
+    StartDate   = start_date;
+    EndDate     = end_date;
+    MaxStudents = max_students;
+  }
+
+  validation validateDates on save { create; field StartDate, EndDate; }
+
+}

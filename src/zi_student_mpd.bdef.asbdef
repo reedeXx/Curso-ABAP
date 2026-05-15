@@ -1,0 +1,24 @@
+managed implementation in class zbp_i_student_mpd unique;
+strict ( 2 );
+
+define behavior for ZI_STUDENT_MPD alias Student
+persistent table zstudent_mpd
+lock master
+authorization master ( global )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  mapping for zstudent_mpd
+  {
+    StudentId = student_id;
+    FirstName = first_name;
+    LastName  = last_name;
+    Email     = email;
+  }
+
+  validation validateEmail on save { create; field Email; }
+
+}
