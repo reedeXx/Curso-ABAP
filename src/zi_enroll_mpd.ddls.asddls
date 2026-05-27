@@ -13,6 +13,7 @@ define view entity ZI_ENROLL_MPD as select from zenroll_mpd
     student_id     as StudentId, -- Campo que vincula al Padre
     course_id      as CourseId,
     status         as Status,
+    enroll_date as EnrollDate,
       
     /* Exposición del Padre y del Maestro de Cursos */
     _Student,

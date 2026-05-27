@@ -20,7 +20,7 @@ CLASS zcl_estructura_mpd IMPLEMENTATION.
       data lv_var type string VALUE '+34 '.
 
       TYPES : BEGIN OF ty_persona,
-              nombre   type string,
+              nombre   type zde_nombre_mpd,
               edad     type i,
               telefono type string,
               email    TYPE string,

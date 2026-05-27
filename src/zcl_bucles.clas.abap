@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_bucles IMPLEMENTATION.
+CLASS ZCL_BUCLES IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -112,5 +112,4 @@ CLASS zcl_bucles IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
 ENDCLASS.

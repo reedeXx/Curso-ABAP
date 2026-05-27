@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE -- Capa base recomendada para metadatos IU [8]
+annotate view ZC_COURSE_MPD with 
+{
+
+  @UI.facet: [ 
+    { id: 'CourseInfo', 
+      type: #IDENTIFICATION_REFERENCE, 
+      label: 'Información General del Curso', 
+      position: 10 } 
+  ]
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ] }
+  CourseId;
+
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ] }
+  CourseName;
+
+  @UI: { lineItem:       [ { position: 30, importance: #MEDIUM } ],
+         identification: [ { position: 30 } ],
+         selectionField: [ { position: 30 } ] }
+  Category;
+
+  @UI: { identification: [ { position: 40 } ] }
+  MaxStudents;
+
+  @UI: { lineItem:       [ { position: 50, importance: #LOW } ],
+         identification: [ { position: 50 } ] }
+  StartDate;
+
+  @UI: { lineItem:       [ { position: 60, importance: #LOW } ],
+         identification: [ { position: 60 } ] }
+  EndDate;
+
+  @UI: { lineItem:       [ { position: 70, importance: #HIGH } ],
+         identification: [ { position: 70 } ] }
+  IsActive;
+}

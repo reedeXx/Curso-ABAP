@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Inscripción',
+    typeNamePlural: 'Inscripciones',
+    title: { type: #STANDARD, label: 'Inscripción', value: 'EnrollId' }
+  }
+}
+annotate entity ZC_ENROLL_MPD
+    with 
+{
+  @UI.facet: [
+    {
+      id:          'EnrollDetails',
+      purpose:     #STANDARD,
+      type:        #IDENTIFICATION_REFERENCE,
+      label:       'Datos Inscripción',
+      position:    10
+    }
+  ]
+  @UI: {
+    lineItem:       [ { position: 10, label: 'ID Inscripción' } ],
+    identification: [ { position: 10, label: 'ID Inscripción' } ],
+    fieldGroup:     [ { position: 10, qualifier: 'EnrollCreate' } ]
+  }
+  EnrollId;
+
+  @UI: {
+    lineItem:       [ { position: 20, label: 'ID Curso' } ],
+    identification: [ { position: 20, label: 'ID Curso' } ],
+    fieldGroup:     [ { position: 20, qualifier: 'EnrollCreate' } ]
+  }
+  CourseId;
+
+  @UI: {
+    lineItem:       [ { position: 30, label: 'Fecha Inscripción' } ],
+    identification: [ { position: 30, label: 'Fecha Inscripción' } ],
+    fieldGroup:     [ { position: 30, qualifier: 'EnrollCreate' } ]
+  }
+  EnrollDate;
+
+  @UI: {
+    lineItem:       [ { position: 40, label: 'Estado' } ],
+    identification: [ { position: 40, label: 'Estado' } ],
+    fieldGroup:     [ { position: 40, qualifier: 'EnrollCreate' } ]
+  }
+  Status;
+}

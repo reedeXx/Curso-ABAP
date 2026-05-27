@@ -2,4 +2,5 @@
 define service ZSD_STUDENT_MPD {
   expose ZC_STUDENT_MPD as Student;
   expose ZC_COURSE_MPD  as Course;
+  expose ZC_ENROLL_MPD  as Enrollment;
 }

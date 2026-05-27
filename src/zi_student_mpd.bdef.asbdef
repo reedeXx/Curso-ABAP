@@ -1,9 +1,11 @@
 managed implementation in class zbp_i_student_mpd unique;
 strict ( 2 );
-
+with draft;
+with cross associations;
 define behavior for ZI_STUDENT_MPD alias Student
 persistent table zstudent_mpd
-lock master
+draft table ZSTUDENT_MPD_D
+lock master total etag CreatedAt
 authorization master ( global )
 //etag master <field_name>
 {
@@ -11,14 +13,65 @@ authorization master ( global )
   update;
   delete;
 
+  field ( mandatory : create ) StudentId;
+  field ( readonly : update ) StudentId;
+  field ( readonly ) CreatedAt, CreatedBy;
+
+  association _Enrollment { create; with draft; }
+
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare
+  {
+    validation Enroll ~ validateMaxStudents;
+  }
+
   mapping for zstudent_mpd
   {
     StudentId = student_id;
     FirstName = first_name;
     LastName  = last_name;
     Email     = email;
+    BirthDate = birth_date;
+    CreatedAt = created_at;
+    CreatedBy = created_by;
   }
 
   validation validateEmail on save { create; field Email; }
+
+}
+
+
+define behavior for ZI_ENROLL_MPD alias Enroll
+persistent table zenroll_mpd
+draft table zenroll_mpd_d
+lock dependent by _Student
+authorization dependent by _Student
+etag master enrollDate
+{
+  update;
+  delete;
+
+  field ( mandatory : create ) enrollId, courseId;
+  field ( readonly: update ) enrollId;
+  field (readonly) studentId;
+
+  association _Student { with draft; }
+  association _Course { }
+
+  mapping for zenroll_mpd
+  {
+    studentId = student_id;
+    enrollId  = enroll_id;
+    enrollDate = enroll_date;
+    courseId = course_id;
+    status = status;
+  }
+
+  validation validateMaxStudents on save { create; update; }
 
 }

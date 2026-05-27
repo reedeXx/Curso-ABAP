@@ -6,9 +6,14 @@
 "ZI_STUDENT_MPD"
 ],
 "ASSOCIATED":
-[],
+[
+"ZC_ENROLL_MPD",
+"ZI_ENROLL_MPD"
+],
 "BASE":
-[],
+[
+"ZI_STUDENT_MPD"
+],
 "ANNO_REF":
 [],
 "SCALAR_FUNCTION":

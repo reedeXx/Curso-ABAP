@@ -1,0 +1,51 @@
+@Metadata.layer: #CORE
+annotate view ZC_STUDENT_MPD with 
+{
+  /* Configuración de Facetas para la Object Page */
+  @UI.facet: [
+    {
+      id:              'StudentDetails',
+      purpose:         #STANDARD,
+      type:            #IDENTIFICATION_REFERENCE,
+      label:           'Datos Generales',
+      position:        10
+    },
+    {
+      id:              'Enrollments',
+      purpose:         #STANDARD,
+      type:            #LINEITEM_REFERENCE,
+      label:           'Inscripciones',
+      position:        20,
+      targetElement:   '_Enrollment'
+    }
+  ]
+
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ] }
+  StudentId;
+
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ] }
+  FirstName;
+
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
+         identification: [ { position: 30 } ] }
+  LastName;
+
+  @UI: { lineItem:       [ { position: 40, importance: #MEDIUM } ],
+         identification: [ { position: 40 } ] }
+  Email;
+
+  @UI: { lineItem:       [ { position: 50, importance: #MEDIUM } ],
+         identification: [ { position: 50 } ] }
+  BirthDate;
+
+  /* Campos de Auditoría (Normalmente solo en identificación, no en la lista principal) */
+  @UI.identification: [ { position: 60 } ]
+  CreatedAt;
+
+  @UI.identification: [ { position: 70 } ]
+  CreatedBy;
+}

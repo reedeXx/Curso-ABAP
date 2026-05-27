@@ -6,9 +6,13 @@
 "ZI_COURSE_MPD"
 ],
 "ASSOCIATED":
-[],
+[
+"ZI_ENROLL_MPD"
+],
 "BASE":
-[],
+[
+"ZI_COURSE_MPD"
+],
 "ANNO_REF":
 [],
 "SCALAR_FUNCTION":

@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_cadchars IMPLEMENTATION.
+CLASS ZCL_CADCHARS IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

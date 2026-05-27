@@ -11,7 +11,7 @@ CLASS zcl_mpd_generate_employees IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
     DATA lt_employees TYPE TABLE OF zmpd_employee.
 
-    " 1. Limpiar datos previos (opcional para pruebas limpias)
+    " 1. Limpiar datos previos
     DELETE FROM zmpd_employee.
 
     " 2. Definir datos de prueba usando la expresión VALUE #
